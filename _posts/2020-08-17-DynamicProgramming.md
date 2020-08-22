@@ -652,5 +652,6 @@ def rob(self, nums: List[int]) -> int:
 
 ### 参考资料
 * 算法导论，第15章
+* [Datawhale组队学习资料](https://github.com/datawhalechina/team-learning-program/blob/master/LeetCodeClassification/2.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.md)
 * [五大常用算法之二：动态规划算法](https://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741374.html)
 * [How to solve a Dynamic Programming Problem ?](https://www.geeksforgeeks.org/solve-dynamic-programming-problem/)
