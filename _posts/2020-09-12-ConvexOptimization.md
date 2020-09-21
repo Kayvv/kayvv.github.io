@@ -142,9 +142,9 @@ stochastic programming(这啥?)
   * DP，Greedy
   * 计算复杂度 Computational Complexity （MIT 4th Chapter），NP-Hard
   * 堆
-* 
+* 线性代数
 
 ## 学习资料
 
-- cvxopt.org
+- [cvxopt.org](cvxopt.org)
 - Matrix Cookbook
