@@ -14,9 +14,9 @@ AI问题 = 模型 Objective + 优化 Optimization
 任何一个优化问题，都可以写成如下形式：
 $$
 \begin{align*}
-&\min f_0 (x)\\
-s.t.\space\space\space\space f_i(x)&≤0,  i={1,…, K}\\
- g_j(x)&=0,       j={1,…, L}
+Minimize\space\space  &f_0 (x)\\
+s.t.\space\space &f_i(x)≤0,  i={1,…, K}\\
+ &g_j(x)=0,       j={1,…, L}
 \end{align*}
 $$
 
@@ -66,9 +66,9 @@ x满足一定条件（定义域），满足条件的x叫可行解（Feasible Sol
 ### 凸集 Convex Set
 
 **定义**：
-	假设对于任意x,y∈C并且任意参数，α∈[0,1], 我们有αx+(1-α)y ∈C , 则集合为凸集。
+	假设对于任意$x,y∈C$并且任意参数，$α∈[0,1]$, 我们有$αx+(1-α)y ∈C$ , 则集合为凸集。
 
-​	a = 0.4, αx+(1-α)y = 0.4x+0.6y,这样的式子被称为Convex Combination。
+​	$a = 0.4, αx + (1 - α)y = 0.4x + 0.6y$,这样的式子被称为Convex Combination。
 
 **定理**：
 	两个凸集的交集也是凸集(intersection of convex set is convex)
@@ -80,23 +80,21 @@ x满足一定条件（定义域），满足条件的x叫可行解（Feasible Sol
 $$
 f(\theta x+(1-\theta)y)≤\theta f(x)+(1-\theta)f(y)
 $$
+
+从图像上来看，也就是指函数两点间的连线始终在函数的上方(≥)。
+
+用定义判定凸函数比较麻烦，更好的判断方法有这些：
+
 **First Order Convexity Condition**：
 
-​	假设：
-$$
-f:  R^n→R
-$$
-​	是可导的（differentiable)，则f为凸函数，的当且仅当：
-$$
-f(y)≥f(x)+∇(x)^T (y-x)
-$$
-​	对于任意 $ x,y∈domf $
+​	假设：$f:  R^n→R$是可导的（differentiable)，对于任意 $ x,y∈domf $当且仅当：$f(y)≥f(x)+∇(x)^T (y-x)$时，f为凸函数。
 
 **Second Order Convexity Condition**：
 
-​	假设$f:  R^n→R$是两次可导的（twice differentiable)，则f 为凸函数，当且仅当：
-​	$∇^2 f(x)≥0$
-​	对于任意$x,y∈domf$
+​	假设$f:  R^n→R$是两次可导的（twice differentiable)，对于任意$x,y∈domf$当且仅当：$∇^2 f(x) ⪰ 0$时，f 为凸函数。
+在计算二阶导时，x 是向量，则得到的矩阵是黑森矩阵(Hessian Matrix)，若该矩阵满足上述不等式，则为半正定矩阵(PSD)https://zhuanlan.zhihu.com/p/44860862 ,半正定矩阵的判定方法：$∀v, ∃vT Mv ≥ 0$，则M 是半正定矩阵。
+
+对于复杂的函数，可以拆分为多个子函数，分别判断每个部分，再利用凸函数的可加性得出结论。
 
 ## 常见的优化问题 Optimization Problem
 优化问题的5个步骤：
@@ -107,16 +105,32 @@ $$
 5. 解决问题，Solver
 
 ### 运输问题 Transportation Problem
+![](https://gitee.com/Kayvv/image/raw/master/img/transport_optimization.png)
 
-线性规划（Linear Programming）
+从B,S两地运送货物到1，2，3处不同的目的地，每条路线运输费用各不相同，目的是将运输费用最小化（ Minimize Transportation Cost）
 
-stochastic programming
+1. 找到变量，Decision Valuable
+	- $B_1,B_2,B_3,S_1,S_2,S_3$ 
+2. 确定模型，Objective
+	- $5B_1 + 3B_2 + 6B_3 + 7S_1 + 2S_2 + 3S_3$ 
+3. 要满足的条件，Constraint
+	- ![](https://gitee.com/Kayvv/image/raw/master/img/transport_optimization_constraint.png)
+4. 判断问题类型 ：线性规划（Linear Programming）
+	- ![](https://gitee.com/Kayvv/image/raw/master/img/transport_optimization_solve.png)
+5. 解决问题，Solver
+
+
+stochastic programming(这啥?)
 
 ### 股票组合优化 Portfolio optimization
 
-二次规划（Quadratic Programming）
+二次规划（Quadratic Programming）（没看懂？看了几遍看不懂，算了，先放着吧）
 
 ### 集合覆盖问题 Set Cover Set
+
+1. Exhaustive Search
+2. Greedy Search
+3. Mathematical Formulation（上面介绍的5步法）
 
 ## 需要补课的基础知识
 
