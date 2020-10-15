@@ -7,7 +7,7 @@ author:     Kay
 catalog: true
 tags:
     - Python
-	- 算法
+- 算法
 ---
 
 
@@ -30,13 +30,10 @@ def quick_sort(sort_list,start_index,end_index):
             #先移动右侧的指针，因为基准值在左侧，当左右指针重合时，跟基准值交换位置的值应该小于基准值
             
             while i < j and sort_list[j] >= basic:
-                
                 #这里的i<j不能省略，因为循环里上一次j-1后有可能等于i
                 
-                j -= 1
-            
+                j -= 1 
             while i < j and sort_list[i] <= basic:
-                
                 #这里的i<j不能省略，因为前面j-1后有可能等于i
                 
                 i += 1
