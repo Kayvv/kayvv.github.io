@@ -1,5 +1,5 @@
 ---
-zlayout:     post
+layout:     post
 title:      快速排序的三种写法
 subtitle:   贪心学院机器学习初级训练营
 date:       2020-10-15
