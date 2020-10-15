@@ -17,24 +17,38 @@ tags:
 def quick_sort(sort_list,start_index,end_index):
     print(sort_list)
     #如果角标左侧小于右侧则开始排序，否则退出（递归的‘归’），忘写就会死循环。
+    
     #我之前以为有下面的i<j就不用判断了，但那是不对的，两码事。
+    
     if start_index < end_index:
+        
         #基准值从左侧取第一个，这个很重要，关系到下面指针移动的顺序
+        
         basic, i, j = sort_list[start_index],start_index,end_index
         while i < j:#保证左侧的index一定比右侧的小
+            
             #先移动右侧的指针，因为基准值在左侧，当左右指针重合时，跟基准值交换位置的值应该小于基准值
+            
             while i < j and sort_list[j] >= basic:
+                
                 #这里的i<j不能省略，因为循环里上一次j-1后有可能等于i
+                
                 j -= 1
+            
             while i < j and sort_list[i] <= basic:
+                
                 #这里的i<j不能省略，因为前面j-1后有可能等于i
+                
                 i += 1
             sort_list[i], sort_list[j] = sort_list[j], sort_list[i]
         #将基准值换到i，j汇合点
+        
         sort_list[start_index], sort_list[i] = sort_list[i],sort_list[start_index]
         #左边递归
+        
         quick_sort(sort_list, start_index, i-1)
         #右边递归
+        
         quick_sort(sort_list, i+1, end_index)
 ```
 
