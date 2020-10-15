@@ -21,7 +21,6 @@ def quick_sort(sort_list,start_index,end_index):
     #我之前以为有下面的i<j就不用判断了，但那是不对的，两码事。
     
     if start_index < end_index:
-        
         #基准值从左侧取第一个，这个很重要，关系到下面指针移动的顺序
         
         basic, i, j = sort_list[start_index],start_index,end_index
